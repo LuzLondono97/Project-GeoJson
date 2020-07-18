@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../modelo/usuario.model';
-import { TipoUsuario } from '../modelo/tipo-usuario.model';
+import { Rol } from '../modelo/rol.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
   usuario: Usuario;
-  tipoUsuario: TipoUsuario;
+  rol: Rol;
 
   user: string = 'Luza_97';
   password: string = '123456';

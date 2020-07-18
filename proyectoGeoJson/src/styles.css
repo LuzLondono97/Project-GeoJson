@@ -1,0 +1,17 @@
+.logo {
+    width: 45px;
+    float: left;
+    margin-right: 20px;
+  }
+  
+  .form-group {
+    max-width: 500px;
+  }
+  
+  .actions {
+    padding: 10px 0;
+  }
+  
+  .glyphicon-euro {
+    font-size: 12px;
+  }

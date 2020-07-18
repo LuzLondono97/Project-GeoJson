@@ -1,14 +1,14 @@
-import { TipoUsuario } from './tipo-usuario.model';
+import { Rol } from './rol.model';
+import { TipoIdentificacion } from './tipo-identificacion.model';
 
 export class Usuario {
-    identificacion: number;
-    ciudadExpedicion: string;
-    fechaNacimiento: Date;
+    numero_identificacion_ID: string;
+    tipo_identificacion_ID: TipoIdentificacion; //CC-PP
     nombres: string;
     apellidos: string;
-    correo: string;
-    movil: number;
-    user: string;
+    celular: number;
+    telefono: number;
+    email: string;
     clave: string;
-    tipoUsuario: TipoUsuario; //Admin-Creador-Visualizador
+    rol: Rol; //Admin-Creador-Visualizador
 }
