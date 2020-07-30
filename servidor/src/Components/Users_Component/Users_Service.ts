@@ -1,0 +1,62 @@
+/*Esta clase contiene la configuracion de los servicios del lado del servidor
+ utilizados para la tabla Base de tiempo */
+
+ import BaseService from '../Base_Component/Base_Service';
+ import ConnectionDataBase from '../../basedatos';
+ import { handlerQuery } from '../../Hanldlers/Handle_Queries';
+ import { Request, Response } from 'express';
+ import handleMessage from '../../Hanldlers/Handle_Message';
+ 
+ // Se "llenan" los metodos abstractos creados en la clase BaseService.ts
+ class UserService implements BaseService<any> {
+ 
+     async create(request: Request, response: Response): Promise<any> {
+         try {
+             let { id_rol, id_organizacion, nombre_usuario, apellido_usuario, documento_usuario, cargo_usuario, email_usuario, contrasena_usuario } = request.body;
+             await ConnectionDataBase.query(handlerQuery['createUser'], [id_rol, id_organizacion, nombre_usuario, apellido_usuario,  documento_usuario, cargo_usuario, email_usuario, contrasena_usuario]);
+             return Promise.resolve(handleMessage(response, 200, 'Create User'));
+         } catch (error) {
+             Promise.reject(handleMessage(response, 404, 'Error'));
+         }
+     }
+ // El Update no funciona aun
+     async update(request: Request, response: Response): Promise<any> {
+         try {
+             const { id_usuario } = request.params;
+             let { id_rol, id_organizacion, nombre_usuario, apellido_usuario, cargo_usuario, email_usuario, contrasena_usuario } = request.body;
+             await ConnectionDataBase.query(handlerQuery['updateUser'], [id_rol, id_organizacion, nombre_usuario, apellido_usuario, cargo_usuario, email_usuario, contrasena_usuario, id_usuario]);
+             return Promise.resolve(handleMessage(response, 200, 'Update Uuser'))
+ 
+         } catch (error) {
+             Promise.reject(handleMessage(response, 404, 'Error'));
+         }
+     }
+ 
+     async view(_: Request, response: Response): Promise<any> {
+         try {
+             let users = await ConnectionDataBase.query(handlerQuery['viewUsers']);
+             return Promise.resolve(handleMessage(response, 200, users.rows));
+         } catch (error) {
+             Promise.reject(handleMessage(response, 404, 'Error'));
+         }
+     }
+ 
+     async viewById(request: Request, response: Response): Promise<any> {
+         try {
+             const { id_usuario } = request.params;
+             let user = await ConnectionDataBase.query(handlerQuery.viewUser, [id_usuario]);
+             console.log(user.rows);
+             if (user.rows.length === 0) {
+                 return Promise.resolve(handleMessage(response, 200, 'Alert doesn´t exist'));
+             } else {
+                 return Promise.resolve(handleMessage(response, 200, user.rows));
+             }
+         } catch (error) {
+             Promise.reject(handleMessage(response, 404, 'Error'));
+         }
+     }
+ }
+ 
+ // Se crea y exporta una constante que contiene los servicios de esta clase.
+ const usersService = new UserService();
+ export default usersService;

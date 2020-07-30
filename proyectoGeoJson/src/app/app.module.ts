@@ -9,6 +9,11 @@ import { routing } from './app.routing';
 import { AppRoutingModule } from './app-routing.module';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
+import { HttpClientModule } from '@angular/common/http'
+
+//Services
+import { DataApiService } from './services/data-api.service';
+
 @NgModule({
   declarations: [AppComponent, LoginComponent, MapasGeojsonComponent, UsuariosComponent],
   imports: [
@@ -17,6 +22,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     routing
   ],
   providers: [
+    DataApiService,
     { provide: LOCALE_ID, useValue: 'es-CO' },
     { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
