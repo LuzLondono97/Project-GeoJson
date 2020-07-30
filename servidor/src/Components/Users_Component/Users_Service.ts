@@ -12,8 +12,8 @@
  
      async create(request: Request, response: Response): Promise<any> {
          try {
-             let { id_rol, id_organizacion, nombre_usuario, apellido_usuario, documento_usuario, cargo_usuario, email_usuario, contrasena_usuario } = request.body;
-             await ConnectionDataBase.query(handlerQuery['createUser'], [id_rol, id_organizacion, nombre_usuario, apellido_usuario,  documento_usuario, cargo_usuario, email_usuario, contrasena_usuario]);
+             let { numero_identificacion_id, nombres, apellidos, celular, telefono, email, clave, rol_ID, tipo_identificacion_ID } = request.body;
+             await ConnectionDataBase.query(handlerQuery['createUser'], [numero_identificacion_id, nombres, apellidos, celular, telefono, email, clave, rol_ID, tipo_identificacion_ID]);
              return Promise.resolve(handleMessage(response, 200, 'Create User'));
          } catch (error) {
              Promise.reject(handleMessage(response, 404, 'Error'));
@@ -22,9 +22,9 @@
  // El Update no funciona aun
      async update(request: Request, response: Response): Promise<any> {
          try {
-             const { id_usuario } = request.params;
-             let { id_rol, id_organizacion, nombre_usuario, apellido_usuario, cargo_usuario, email_usuario, contrasena_usuario } = request.body;
-             await ConnectionDataBase.query(handlerQuery['updateUser'], [id_rol, id_organizacion, nombre_usuario, apellido_usuario, cargo_usuario, email_usuario, contrasena_usuario, id_usuario]);
+             const { numero_identificacion_id } = request.params;
+             let { nombres, apellidos, celular, telefono, email, clave, rol_ID, tipo_identificacion_ID } = request.body;
+             await ConnectionDataBase.query(handlerQuery['updateUser'], [numero_identificacion_id, nombres, apellidos, celular, telefono, email, clave, rol_ID, tipo_identificacion_ID]);
              return Promise.resolve(handleMessage(response, 200, 'Update Uuser'))
  
          } catch (error) {
@@ -43,8 +43,8 @@
  
      async viewById(request: Request, response: Response): Promise<any> {
          try {
-             const { id_usuario } = request.params;
-             let user = await ConnectionDataBase.query(handlerQuery.viewUser, [id_usuario]);
+             const { numero_identificacion_id } = request.params;
+             let user = await ConnectionDataBase.query(handlerQuery.viewUser, [numero_identificacion_id]);
              console.log(user.rows);
              if (user.rows.length === 0) {
                  return Promise.resolve(handleMessage(response, 200, 'Alert doesn´t exist'));

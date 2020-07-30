@@ -22,8 +22,8 @@ class UserService {
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let { id_rol, id_organizacion, nombre_usuario, apellido_usuario, documento_usuario, cargo_usuario, email_usuario, contrasena_usuario } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createUser'], [id_rol, id_organizacion, nombre_usuario, apellido_usuario, documento_usuario, cargo_usuario, email_usuario, contrasena_usuario]);
+                let { numero_identificacion_id, nombres, apellidos, celular, telefono, email, clave, rol_ID, tipo_identificacion_ID } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createUser'], [numero_identificacion_id, nombres, apellidos, celular, telefono, email, clave, rol_ID, tipo_identificacion_ID]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Create User'));
             }
             catch (error) {
@@ -35,9 +35,9 @@ class UserService {
     update(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { id_usuario } = request.params;
-                let { id_rol, id_organizacion, nombre_usuario, apellido_usuario, cargo_usuario, email_usuario, contrasena_usuario } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateUser'], [id_rol, id_organizacion, nombre_usuario, apellido_usuario, cargo_usuario, email_usuario, contrasena_usuario, id_usuario]);
+                const { numero_identificacion_id } = request.params;
+                let { nombres, apellidos, celular, telefono, email, clave, rol_ID, tipo_identificacion_ID } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateUser'], [numero_identificacion_id, nombres, apellidos, celular, telefono, email, clave, rol_ID, tipo_identificacion_ID]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Update Uuser'));
             }
             catch (error) {
@@ -59,8 +59,8 @@ class UserService {
     viewById(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { id_usuario } = request.params;
-                let user = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery.viewUser, [id_usuario]);
+                const { numero_identificacion_id } = request.params;
+                let user = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery.viewUser, [numero_identificacion_id]);
                 console.log(user.rows);
                 if (user.rows.length === 0) {
                     return Promise.resolve(Handle_Message_1.default(response, 200, 'Alert doesn´t exist'));
