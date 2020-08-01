@@ -16,9 +16,8 @@ class RolRoute {
     las rutas de regiones*/
 
     configuracion(): void {
-        this.router.get('/viewRoles', RolService.view);
-        this.router.get('/viewRolesDesc', RolService.viewR);
-        this.router.get('/viewRolsUser', RolService.view);
+        this.router.get('/viewRoles', RolService.viewRoles);
+        this.router.get('/viewRolDescById', RolService.viewRolDescById);
     }
 }
 

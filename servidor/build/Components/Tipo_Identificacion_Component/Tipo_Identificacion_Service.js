@@ -18,7 +18,7 @@ const basedatos_1 = __importDefault(require("../../basedatos"));
 const Handle_Queries_1 = require("../../Hanldlers/Handle_Queries");
 const Handle_Message_1 = __importDefault(require("../../Hanldlers/Handle_Message"));
 // Se "llenan" los metodos abstractos creados en la clase BaseService.ts
-class RolService {
+class TipoDocumentoService {
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
         });
@@ -35,28 +35,11 @@ class RolService {
         return __awaiter(this, void 0, void 0, function* () {
         });
     }
-    viewRoles(request, response) {
+    viewTipoIdentificacion(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let rols = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewRoles']);
+                let rols = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewTipoIdentificaciones']);
                 return Promise.resolve(Handle_Message_1.default(response, 200, rols.rows));
-            }
-            catch (error) {
-                Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
-            }
-        });
-    }
-    viewRolDescById(request, response) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const { id_rol } = request.params;
-                let rol = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery.viewRolesDesc, [id_rol]);
-                if (rol.rows.length === 0) {
-                    return Promise.resolve(Handle_Message_1.default(response, 200, 'Rol doesn´t exist'));
-                }
-                else {
-                    return Promise.resolve(Handle_Message_1.default(response, 200, rol.rows));
-                }
             }
             catch (error) {
                 Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
@@ -65,5 +48,5 @@ class RolService {
     }
 }
 // Se crea y exporta una constante que contiene los servicios de esta clase.
-const rolService = new RolService();
-exports.default = rolService;
+const tipoDocumentoService = new TipoDocumentoService();
+exports.default = tipoDocumentoService;

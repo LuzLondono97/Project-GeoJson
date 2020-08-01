@@ -6,8 +6,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const Rols_Service_1 = __importDefault(require("./Rols_Service")); // Se importa la constante RegionService de la clase Region_Service
-class RolRoute {
+const Tipo_Identificacion_Service_1 = __importDefault(require("./Tipo_Identificacion_Service")); // Se importa la constante RegionService de la clase Region_Service
+class TipoIdentificacionRoute {
     constructor() {
         this.router = express_1.Router();
         this.configuracion();
@@ -15,10 +15,9 @@ class RolRoute {
     /* Se establecen los metodos de la clase Region_Service, que seran utilizados cuando se llame a cada una de
     las rutas de regiones*/
     configuracion() {
-        this.router.get('/viewRoles', Rols_Service_1.default.viewRoles);
-        this.router.get('/viewRolDescById', Rols_Service_1.default.viewRolDescById);
+        this.router.get('/viewTipoIdentificacion', Tipo_Identificacion_Service_1.default.viewTipoIdentificacion);
     }
 }
 // Se crea y exporta una constante que contiene las rutas de esta clase.
-const rolRoutes = new RolRoute();
-exports.default = rolRoutes.router;
+const tipoIdentificacionRoute = new TipoIdentificacionRoute();
+exports.default = tipoIdentificacionRoute.router;

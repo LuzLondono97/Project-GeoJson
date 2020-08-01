@@ -6,6 +6,7 @@ import cors from 'cors';
 
 import rolsRoutes from './Components/Rols_Component/Rols_Route';
 import usersRoutes from './Components/Users_Component/Users_Route';
+import tipoIdentificacionRoutes from './Components/Tipo_Identificacion_Component/Tipo_Identificacion_Route';
 
 
 // Clase Servidor cuyos metodos se utilizaran más a adelante
@@ -29,9 +30,12 @@ class Servidor {
     }
 
     //Metodo en el cual se establecen las rutas iniciales del lado del servidor de cada tabla parametro
-    rutas(): void {        
+    rutas(): void {
         //Rol
         this.app.use('/api/rol', rolsRoutes);
+        //Tipo-Identificacion
+        this.app.use('/api/tipo_identificacion', tipoIdentificacionRoutes);
+        //Usuarios
         this.app.use('/api/user', usersRoutes);
     }
 

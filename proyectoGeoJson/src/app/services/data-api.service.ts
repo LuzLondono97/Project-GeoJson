@@ -10,6 +10,6 @@ export class DataApiService {
   constructor(private http: HttpClient) { }
 
   getAllUser(){
-    const url_api = "jdbc:postgresql://localhost:5432/progeojson";
+    const url_api = "localhost:3000";
   }
 }

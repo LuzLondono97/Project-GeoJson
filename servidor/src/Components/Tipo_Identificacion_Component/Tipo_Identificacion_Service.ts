@@ -8,7 +8,7 @@ import { Request, Response } from 'express';
 import handleMessage from '../../Hanldlers/Handle_Message';
 
 // Se "llenan" los metodos abstractos creados en la clase BaseService.ts
-class RolService implements BaseService<any> {
+class TipoDocumentoService implements BaseService<any> {
 
     async create(request: Request, response: Response): Promise<any> {
     }
@@ -22,30 +22,17 @@ class RolService implements BaseService<any> {
     async viewById(request: Request, response: Response): Promise<any> {
     }
 
-    async viewRoles(request: Request, response: Response): Promise<any> {
+    async viewTipoIdentificacion(request: Request, response: Response): Promise<any> {
         try {
-            let rols = await ConnectionDataBase.query(handlerQuery['viewRoles']);
+            let rols = await ConnectionDataBase.query(handlerQuery['viewTipoIdentificaciones']);
             return Promise.resolve(handleMessage(response, 200, rols.rows));
         } catch (error) {
             Promise.reject(handleMessage(response, 404, 'Error'));
         }
     }
 
-    async viewRolDescById(request: Request, response: Response): Promise<any> {
-        try {
-            const { id_rol } = request.params;
-            let rol = await ConnectionDataBase.query(handlerQuery.viewRolesDesc, [id_rol]);
-            if (rol.rows.length === 0) {
-                return Promise.resolve(handleMessage(response, 200, 'Rol doesn´t exist'));
-            } else {
-                return Promise.resolve(handleMessage(response, 200, rol.rows));
-            }
-        } catch (error) {
-            Promise.reject(handleMessage(response, 404, 'Error'));
-        }
-    }
 }
 
 // Se crea y exporta una constante que contiene los servicios de esta clase.
-const rolService = new RolService();
-export default rolService;
+const tipoDocumentoService = new TipoDocumentoService();
+export default tipoDocumentoService;
