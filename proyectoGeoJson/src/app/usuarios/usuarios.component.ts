@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, LOCALE_ID, Inject, ViewChild } from '@angular/core';
 import { Usuario } from '../modelo/usuario.model';
+import { UsersService } from '../services/Users_Service';
 
 @Component({
   selector: 'app-usuarios',
@@ -8,11 +9,20 @@ import { Usuario } from '../modelo/usuario.model';
 })
 export class UsuariosComponent implements OnInit {
 
-  usuariosList : Usuario[];
-
-  constructor() { }
+  usuariosList: Usuario[] = [];
+  
+  constructor(private usersService: UsersService) {
+  }
 
   ngOnInit(): void {
+    this.listarUsuarios();
+  }
+
+  async listarUsuarios(){
+    this.usuariosList = await this.usersService.viewUsers().catch(
+      error => console.log("Error. " + error)
+    );
+    console.log(this.usuariosList);
   }
 
 }

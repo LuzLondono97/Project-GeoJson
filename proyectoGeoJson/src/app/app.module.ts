@@ -12,17 +12,20 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http'
 
 //Services
-import { DataApiService } from './services/data-api.service';
+import { UsersService } from './services/Users_Service';
+import BaseService from './Base_Service/Base_Service';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, MapasGeojsonComponent, UsuariosComponent],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     routing
   ],
   providers: [
-    DataApiService,
+    UsersService,
+    BaseService,
     { provide: LOCALE_ID, useValue: 'es-CO' },
     { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],

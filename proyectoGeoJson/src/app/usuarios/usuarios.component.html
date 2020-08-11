@@ -61,11 +61,20 @@
                     <th>Celular</th>
                     <th>Telefóno</th>
                     <th>Email</th>
+                    <th>Rol</th>
                     <th class="col-sm-2">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="product in filteredProducts">
+                <tr *ngFor="let user of usuariosList">
+                    <td>{{user.nombres}}</td>
+                    <td>{{user.apellidos}}</td>
+                    <td>{{user.tiiddesc}}</td>
+                    <td>{{user.numero_identificacion_id}}</td>
+                    <td>{{user.celular}}</td>
+                    <td>{{user.telefono}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.roldesc}}</td>
                     <td>
                         <div class="btn btn-warning btn-xs" >
                             <i class="fa fa-edit"></i>
