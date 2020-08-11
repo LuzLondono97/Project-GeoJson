@@ -1,6 +1,7 @@
 import { Component, OnInit, LOCALE_ID, Inject, ViewChild } from '@angular/core';
 import { Usuario } from '../modelo/usuario.model';
 import { UsersService } from '../services/Users_Service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuarios',
@@ -10,8 +11,9 @@ import { UsersService } from '../services/Users_Service';
 export class UsuariosComponent implements OnInit {
 
   usuariosList: Usuario[] = [];
+  filterUser = '';
   
-  constructor(private usersService: UsersService) {
+  constructor(private usersService: UsersService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -23,6 +25,10 @@ export class UsuariosComponent implements OnInit {
       error => console.log("Error. " + error)
     );
     console.log(this.usuariosList);
+  }
+
+  public crearUsuario(){
+    this.router.navigate(['/usuario-crear']);
   }
 
 }

@@ -39,14 +39,15 @@
     <br />
     <div class="row">
         <div class="col-sm-12">
-            <button class="btn btn-outline-dark"><i class="fa fa-plus"> Adicionar Usuario </i></button>
+            <button class="btn btn-outline-dark" (click)="crearUsuario()"><i class="fa fa-plus"> Adicionar Usuario </i></button>
         </div>
     </div>
     <br />
     <div class="row filters">
         <div class="form-group col-sm-3">
             <label class="h5 font-italic" for="search-element">Número Identificación</label>
-            <input v-model="searchKey" class="form-control" id="search-element" requred />
+            <input v-model="searchKey" class="form-control" id="search-element" requre
+                [(ngModel)]="filterUser" />
         </div>
     </div>
     <br />
@@ -66,11 +67,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of usuariosList">
+                <tr *ngFor="let user of usuariosList | filter:filterUser">
                     <td>{{user.nombres}}</td>
                     <td>{{user.apellidos}}</td>
                     <td>{{user.tiiddesc}}</td>
-                    <td>{{user.numero_identificacion_id}}</td>
+                    <td><b>{{user.numero_identificacion_id}}</b></td>
                     <td>{{user.celular}}</td>
                     <td>{{user.telefono}}</td>
                     <td>{{user.email}}</td>
