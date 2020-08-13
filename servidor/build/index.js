@@ -11,6 +11,7 @@ const cors_1 = __importDefault(require("cors"));
 const Rols_Route_1 = __importDefault(require("./Components/Rols_Component/Rols_Route"));
 const Users_Route_1 = __importDefault(require("./Components/Users_Component/Users_Route"));
 const Tipo_Identificacion_Route_1 = __importDefault(require("./Components/Tipo_Identificacion_Component/Tipo_Identificacion_Route"));
+const Estados_Route_1 = __importDefault(require("./Components/Estados_Component/Estados_Route"));
 // Clase Servidor cuyos metodos se utilizaran más a adelante
 class Servidor {
     // Constructor en el cual se instancian los metodos a ejecutar
@@ -33,6 +34,8 @@ class Servidor {
         this.app.use('/api/rol', Rols_Route_1.default);
         //Tipo-Identificacion
         this.app.use('/api/tipo_identificacion', Tipo_Identificacion_Route_1.default);
+        //Estado
+        this.app.use('/api/estado', Estados_Route_1.default);
         //Usuarios
         this.app.use('/api/user', Users_Route_1.default);
     }

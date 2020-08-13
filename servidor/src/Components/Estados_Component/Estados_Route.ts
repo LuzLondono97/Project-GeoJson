@@ -2,9 +2,9 @@
  utilizadas para la tabla region*/
 
 import { Router } from 'express';
-import TipoIdentificacionService from './Tipo_Identificacion_Service'; // Se importa la constante RegionService de la clase Region_Service
+import EstadoService from './Estados_Service'; // Se importa la constante RegionService de la clase Region_Service
 
-class TipoIdentificacionRoute {
+class EstadoRoute {
 
     public router: Router = Router();
 
@@ -16,10 +16,10 @@ class TipoIdentificacionRoute {
     las rutas de regiones*/
 
     configuracion(): void {
-        this.router.get('/viewTipoIdentificacion', TipoIdentificacionService.viewTipoIdentificacion);
+        this.router.get('/viewEstados', EstadoService.viewEstados);
     }
 }
 
 // Se crea y exporta una constante que contiene las rutas de esta clase.
-const tipoIdentificacionRoute = new TipoIdentificacionRoute();
-export default tipoIdentificacionRoute.router;
+const estadoRoute = new EstadoRoute();
+export default estadoRoute.router;

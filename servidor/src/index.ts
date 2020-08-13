@@ -7,6 +7,7 @@ import cors from 'cors';
 import rolsRoutes from './Components/Rols_Component/Rols_Route';
 import usersRoutes from './Components/Users_Component/Users_Route';
 import tipoIdentificacionRoutes from './Components/Tipo_Identificacion_Component/Tipo_Identificacion_Route';
+import estadoRoutes from './Components/Estados_Component/Estados_Route';
 
 
 // Clase Servidor cuyos metodos se utilizaran más a adelante
@@ -35,6 +36,8 @@ class Servidor {
         this.app.use('/api/rol', rolsRoutes);
         //Tipo-Identificacion
         this.app.use('/api/tipo_identificacion', tipoIdentificacionRoutes);
+        //Estado
+        this.app.use('/api/estado', estadoRoutes);
         //Usuarios
         this.app.use('/api/user', usersRoutes);
     }
