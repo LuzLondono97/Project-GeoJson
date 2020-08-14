@@ -1,5 +1,6 @@
 import { Rol } from './rol.model';
 import { TipoIdentificacion } from './tipo-identificacion.model';
+import { Estado } from './estado.model';
 
 export class Usuario {
     numero_identificacion_ID: string;
@@ -11,4 +12,5 @@ export class Usuario {
     email: string;
     clave: string;
     rol: Rol; //Admin-Creador-Visualizador
+    estado: Estado; //AC-IN
 }

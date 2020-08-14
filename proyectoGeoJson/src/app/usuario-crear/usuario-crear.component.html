@@ -23,9 +23,8 @@
         </ul>
     </div>
 </nav>
-<br /><br />
+<br />
 <!-- fin - navbar -->
-
 <div class="container" style="background-color: white;">
     <br /><br />
     <div class="row">
@@ -38,12 +37,70 @@
         </div>
     </div>
     <br />
-    
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <label for="inputRol">Rol:</label>
+            <select id="inputRol" class="form-control">
+                <option selected>----------</option>
+                <option>...</option>
+            </select>
+        </div>
+        <div class="col-4">
+            <label for="inputTipoDocumento">Tipo Documento:</label>
+            <select id="inputTipoDocumento" class="form-control">
+                <option selected>----------</option>
+                <option>...</option>
+            </select>
+        </div>
+        <div class="col-4">
+            <label for="inputNumeroDocumento">Número Documento:</label>
+            <input type="text" class="form-control">
+        </div>
+    </div>
+    <br />
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <label for="inputNombres">Nombres:</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-6">
+            <label for="inputApellidos">Apellidos:</label>
+            <input type="text" class="form-control">
+        </div>
+    </div>
+    <br />
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <label for="inputCelular">Célular:</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-6">
+            <label for="inputTelefono">Telefóno:</label>
+            <input type="text" class="form-control">
+        </div>
+    </div>
+    <br />
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <label for="inputEmail">Email:</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-6">
+            <label for="inputContraseña">Contraseña:</label>
+            <input type="text" class="form-control">
+        </div>
+    </div>
+    <br /><br />
+    <div class="row text-right">
+        <div class="col-12">
+            <button type="button" class="btn btn-warning btn-xs"> Editar </button>
+            <button type="button" class="btn btn-success btn-xs"> Guardar </button>
+            <button type="button" class="btn btn-danger btn-xs" (click)="viewUsuarios()"> Cancelar </button>
+        </div>
+    </div>
     <br />
 </div>
-
-<br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br />
+<br />
 <!-- inicio - footer -->
 <div class="card justify-content-center" style="background-color: rgb(32, 3, 53);">
     <div class="card-header text-white text-center">

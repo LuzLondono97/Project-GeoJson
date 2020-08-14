@@ -23,7 +23,7 @@
         </ul>
     </div>
 </nav>
-<br /><br />
+<br />
 <!-- fin - navbar -->
 <div class="container" style="background-color: white;">
     <br /><br />
@@ -39,15 +39,14 @@
     <br />
     <div class="row">
         <div class="col-sm-12">
-            <button class="btn btn-outline-dark" (click)="crearUsuario()"><i class="fa fa-plus"> Adicionar Usuario </i></button>
+            <button class="btn btn-outline-dark" (click)="usuarioCrearModificar()"><i class="fa fa-plus"> Adicionar Usuario </i></button>
         </div>
     </div>
     <br />
     <div class="row filters">
         <div class="form-group col-sm-3">
             <label class="h5 font-italic" for="search-element">Número Identificación</label>
-            <input v-model="searchKey" class="form-control" id="search-element" requre
-                [(ngModel)]="filterUser" />
+            <input v-model="searchKey" class="form-control" id="search-element" requre [(ngModel)]="filterUser" />
         </div>
     </div>
     <br />
@@ -63,6 +62,7 @@
                     <th>Telefóno</th>
                     <th>Email</th>
                     <th>Rol</th>
+                    <th>Estado</th>
                     <th class="col-sm-2">Acciones</th>
                 </tr>
             </thead>
@@ -77,10 +77,15 @@
                     <td>{{user.email}}</td>
                     <td>{{user.roldesc}}</td>
                     <td>
-                        <div class="btn btn-warning btn-xs" >
+                        <div class="btn btn-success btn-xs" (click)="usuarioCrearModificar()">
+                            <b>{{user.estadesc}}</b>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn btn-warning btn-xs" (click)="usuarioCrearModificar()">
                             <i class="fa fa-edit"></i>
                         </div>
-                        <div class="btn btn-danger btn-xs" >
+                        <div class="btn btn-danger btn-xs">
                             <i class="fa fa-trash"></i>
                         </div>
                     </td>
@@ -90,8 +95,7 @@
     </div>
     <br />
 </div>
-<br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br />
+<br />
 <!-- inicio - footer -->
 <div class="card justify-content-center" style="background-color: rgb(32, 3, 53);">
     <div class="card-header text-white text-center">

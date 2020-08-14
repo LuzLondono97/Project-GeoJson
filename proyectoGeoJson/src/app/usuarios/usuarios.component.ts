@@ -27,7 +27,7 @@ export class UsuariosComponent implements OnInit {
     console.log(this.usuariosList);
   }
 
-  public crearUsuario(){
+  public usuarioCrearModificar(){
     this.router.navigate(['/usuario-crear']);
   }
 
