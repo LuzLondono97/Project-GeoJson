@@ -23,9 +23,8 @@
         </ul>
     </div>
 </nav>
-<br />
 <!-- fin - navbar -->
-<div class="container" style="background-color: white;">
+<div class="container">
     <br /><br />
     <div class="row">
         <div class="col-12">
@@ -42,14 +41,15 @@
             <label for="inputRol">Rol:</label>
             <select id="inputRol" class="form-control">
                 <option selected>----------</option>
-                <option>...</option>
+                <option *ngFor="let rol of rolList" [ngValue]="rol">{{rol.descripcion}}</option>
             </select>
         </div>
         <div class="col-4">
             <label for="inputTipoDocumento">Tipo Documento:</label>
             <select id="inputTipoDocumento" class="form-control">
                 <option selected>----------</option>
-                <option>...</option>
+                <option *ngFor="let tipoIdentificacion of tipoDocumentoList" [ngValue]="tipoIdentificacion">
+                    {{tipoIdentificacion.descripcion}}</option>
             </select>
         </div>
         <div class="col-4">
@@ -98,12 +98,11 @@
             <button type="button" class="btn btn-danger btn-xs" (click)="viewUsuarios()"> Cancelar </button>
         </div>
     </div>
-    <br />
 </div>
 <br />
 <!-- inicio - footer -->
-<div class="card justify-content-center" style="background-color: rgb(32, 3, 53);">
-    <div class="card-header text-white text-center">
+<div class="footer justify-content-center">
+    <div class="text-white text-center">
         <p>Proyecto de Investigación de Mapas GeoJson</p>
         <p>Develop Luz Andrea Londoño López y Testing Clayder Eliana Cuero Quiñones</p>
     </div>

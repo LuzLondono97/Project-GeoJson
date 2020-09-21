@@ -12,7 +12,7 @@ export const environment = {
   viewRolDescById: "http://localhost:3000/api/rol/viewRolDescById",
 
   //Para llamar el tipo de documento
-  viewTipoIdentificacion: "http://localhost:3000/api/type/viewTipoIdentificacion",
+  viewTipoIdentificacion: "http://localhost:3000/api/tipo_identificacion/viewTipoIdentificacion",
 
   production: false
 };
